@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.0.RELEASE</version>
+	</parent>
+
+	<groupId>com.booway</groupId>
+	<artifactId>sc-parent</artifactId>
+	<version>${sc.version}</version>
+	<packaging>pom</packaging>
+
+	<name>${project.artifactId}</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<spring-cloud.version>Finchley.SR2</spring-cloud.version>
+		<lombok>1.16.12</lombok>
+		<druid>1.1.10</druid>
+		<mysql>5.1.40</mysql>
+		<feignform>3.3.0</feignform>
+		<fileupload>1.3.3</fileupload>
+
+		<!-- 编译版本 -->
+		<source>1.8</source>
+
+		<!-- 整体版本 -->
+		<sc.version>1.0.0</sc.version>
+
+	</properties>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>${lombok}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid</artifactId>
+				<version>${druid}</version>
+			</dependency>
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.github.openfeign.form</groupId>
+				<artifactId>feign-form</artifactId>
+				<version>${feignform}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-fileupload</groupId>
+				<artifactId>commons-fileupload</artifactId>
+				<version>${fileupload}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>sc-common</artifactId>
+				<version>${sc.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>sc-eureka-server</artifactId>
+				<version>${sc.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>sc-config-client</artifactId>
+				<version>${sc.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>sc-config-server</artifactId>
+				<version>${sc.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>sc-user-client</artifactId>
+				<version>${sc.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>sc-user-entity</artifactId>
+				<version>${sc.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>sc-user-server</artifactId>
+				<version>${sc.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>sc-consul-role-client</artifactId>
+				<version>${sc.version}</version>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+	<dependencies>
+
+
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<!-- 不要编译的太高, 容易产生问题, 需要给客户端使用, 编译低点, 最好用1.6的不能太高 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${source}</source>
+					<target>${source}</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<modules>
+		<module>sc-common</module>
+		<module>sc-eureka-server</module>
+		<module>sc-test</module>
+		<module>sc-config-server</module>
+		<module>sc-config-client</module>
+		<module>sc-user</module>
+		<module>sc-user-client</module>
+		<module>sc-ribbon</module>
+		<module>sc-zuul</module>
+		<module>sc-consul</module>
+    <module>sc-gateway</module>
+  </modules>
+</project>

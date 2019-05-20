@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: consulserver
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+server:
+  port: 10000
+
+      
+
+    
+    

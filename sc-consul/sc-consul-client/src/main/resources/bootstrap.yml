@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: consulclient
+  profiles:
+    active: dev
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      config:
+        format: yaml
+        prefix: config
+        profile-separator: '-'
+        data-key: data
+        enabled: true
+server:
+  port: 10001
+
+      
+
+    
+    

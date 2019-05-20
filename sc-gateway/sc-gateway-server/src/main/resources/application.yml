@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: gatewayserver
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
+      routes:
+      - id: service-user-route
+        uri: http://localhost:8087
+        predicates:
+        - Path=/service/user/queryById
+        
+        
+            
+    
+server:
+  port: 20000
+  
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  security:
+    enabled: false  
+  
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+      
+      
+
+    
+    

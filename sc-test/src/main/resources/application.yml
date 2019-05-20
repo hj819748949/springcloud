@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: service-test
+server:
+  port: 12345
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+      
+feign:
+  hystrix:
+    enabled: true

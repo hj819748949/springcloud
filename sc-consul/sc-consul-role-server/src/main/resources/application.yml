@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: service-role
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+server:
+  port: 10002
+
+      
+
+    
+    
